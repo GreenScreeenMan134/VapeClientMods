@@ -85,7 +85,7 @@ if shared.VapeExecuted then
 	local vapeCachedAssets = {}
 	local function vapeGithubRequest(scripturl)
 		if not isfile("vape/"..scripturl) then
-			local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
+			local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/GreenScreeenMan134/VapeClientMods"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
 			assert(suc, res)
 			assert(res ~= "404: Not Found", res)
 			if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
@@ -507,13 +507,7 @@ if shared.VapeExecuted then
 					end
 					if v.Type == "Button" then
 						if obj["Type"] == "Toggle" then
-							if obj["Api"]["Default"] then
-								if not v["Enabled"] then 
-									obj["Api"]["ToggleButton"](v["Enabled"], true) 
-								end
-							else
-								obj["Api"]["ToggleButton"](v["Enabled"], true)
-							end
+							obj["Api"]["ToggleButton"](v["Enabled"], true)
 							if v["Keybind"] ~= "" then
 								obj["Api"]["Keybind"] = v["Keybind"]
 							end
